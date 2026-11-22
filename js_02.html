@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+     <h2>KIỂM TRA NĂM NHUẬN</h2>
+
+    <script>
+        let year = parseInt(prompt("Nhập vào năm cần kiểm tra:"));
+
+        /!--Kiểm tra năm nhuận--/ 
+        let isLeapYear = false;
+
+        if (year % 400 == 0) {
+            isLeapYear = true;
+        } else if (year % 4 == 0 && year % 100 != 0) {
+            isLeapYear = true;
+        }
+
+        /!--Đưa ra kết quả--/ 
+        if (isLeapYear) {
+            alert(year + ": năm nhuận");
+        } else {
+            alert(year + ": năm không nhuận");
+        }
+
+        let month = parseInt(prompt("Nhập tháng cần kiểm tra (1-12):"));
+
+        /!--Xác định số ngày trong tháng--/ 
+        let days;
+
+        if (month == 2) {
+            if (isLeapYear) {
+                days = 29;
+            } else {
+                days = 28;
+            }
+        } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+            days = 30;
+        } else if (month >= 1 && month <= 12) {
+            days = 31;
+        } else {
+            days = 0;
+        }
+
+        /!--Đưa ra số ngày--/ 
+        if (days != 0) {
+            alert("Tháng " + month + " năm " + year
+                + " có " + days + " ngày");
+        } else {
+            alert("Tháng không hợp lệ!");
+        }
+
+    </script>
+</body>
+</html>
